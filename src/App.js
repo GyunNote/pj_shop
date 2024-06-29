@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import { getPrincipalRequest } from './apis/api/principal';
+import Layout from './components/Layout/Layout';
+import Header from './components/Header/Header';
+import { useQuery } from 'react-query';
+import MainPage from './pages/MainPage/MainPage';
+import Footer from './components/Footer/Footer';
 
 function App() {
+
+  const principalQuery = useQuery(
+    ["principalQuery"],
+    getPrincipalRequest,
+    {
+        retry: 0,
+        refetchOnWindowFocus: false
+    }
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Layout>
+        <Header />
+        <MainPage />
+        <Footer />
+
+          
+      </Layout>
+    </>
   );
 }
 
