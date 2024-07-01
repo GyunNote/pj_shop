@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import { useQuery } from 'react-query';
 import MainPage from './pages/MainPage/MainPage';
 import Footer from './components/Footer/Footer';
+import ShoppingRoute from './routes/ShoppingRoute';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
     <>
       <Layout>
         <Header />
-        <MainPage />
+        <ShoppingRoute />
         <Footer />
 
           

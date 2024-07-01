@@ -22,6 +22,7 @@ background-color: white;
 
 export const logo = css`
 margin-right: 170px;
+cursor: pointer;
 `;
 
 export const buttonItem = css`

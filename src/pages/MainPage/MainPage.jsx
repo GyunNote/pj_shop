@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MdArrowBackIos } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
 import middleBanner from "../../images/2b65ddeb099ae5e372052866c0bd0b91.jpeg"
+import { useNavigate } from "react-router-dom";
 
 function MainPage(props) {
   const images = [
@@ -11,6 +12,7 @@ function MainPage(props) {
     "https://dhait.co.kr/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/6085f63122febad5c6692580c2276144.jpg",
     "https://dhait.co.kr/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/c92ea7de58a9fac94da862e8405abab7.jpg"
   ];
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideshowInterval = useRef(null);
@@ -38,6 +40,8 @@ function MainPage(props) {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     resetInterval();
   };
+
+  
 
   return (
     <div css={s.mainLayout}>

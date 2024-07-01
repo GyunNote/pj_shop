@@ -5,9 +5,12 @@ import { CiSearch } from "react-icons/ci";
 import { IoPersonOutline } from "react-icons/io5";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaBars } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 function Header(props) {
     const [isFixed, setIsFixed] = useState(true); // 초기 상태에서 isFixed를 true로 설정
+
+    const navigate = useNavigate();
 
     const handleScroll = () => {
         if (window.scrollY > 50) {
@@ -24,6 +27,14 @@ function Header(props) {
         };
     }, []);
 
+    const linkToNotice = () => {
+        navigate("/notice");
+      }
+    
+    const linkToMain = () => {
+        navigate("/");
+    }
+
     return (
         <>
             <div css={s.headerLayout}>
@@ -31,10 +42,10 @@ function Header(props) {
                     <div >
                         <button css={s.buttonItem}>BRAND</button>
                         <button css={s.buttonItem}>EVENT</button>
-                        <button css={s.buttonItem}>NOTICE</button>
+                        <button css={s.buttonItem} onClick={() => linkToNotice()}>NOTICE</button>
                         <button css={s.buttonItem}>COMMUNITY</button>
                     </div> 
-                    <div css={s.logo}>
+                    <div css={s.logo} onClick={() => linkToMain()}>
                         logo
                     </div>
                     <div >
