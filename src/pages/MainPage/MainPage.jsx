@@ -12,6 +12,7 @@ function MainPage(props) {
     "https://dhait.co.kr/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/6085f63122febad5c6692580c2276144.jpg",
     "https://dhait.co.kr/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/c92ea7de58a9fac94da862e8405abab7.jpg"
   ];
+  const navigate = useNavigate();
 
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,6 +41,10 @@ function MainPage(props) {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     resetInterval();
   };
+
+  const linkToReview = () => {
+    navigate("/review");
+  }
 
   
 
@@ -83,7 +88,7 @@ function MainPage(props) {
         <img src={middleBanner} alt="" />
         <div css={s.textOverlay}> PHOTO REVIEW</div>
         <div css={s.textOverlay2}> 고객님들의 솔직한 후기</div>
-        <button css={s.textOverlay3}> 더 많은 리뷰 보기+</button>
+        <button css={s.textOverlay3} onClick={() => linkToReview()}> 더 많은 리뷰 보기+</button>
       </div>
 
       <div>

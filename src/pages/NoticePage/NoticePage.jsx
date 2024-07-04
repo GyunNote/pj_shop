@@ -2,16 +2,27 @@ import React from 'react';
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
 import Title from '../../components/TItle/Title';
+import { useQuery } from 'react-query';
+import { searchNoticeBoardRequest } from '../../apis/api/boardApi';
 
 function NoticePage(props) {
+
+    const noticeBoards = useQuery(
+        ["noticeBoards"],
+        async() => await searchNoticeBoardRequest(),
+        {
+            refetchOnWindowFocus : false,
+            onSuccess : response => {
+                console.log(response)
+            }
+        }
+    );
     return (
         <>
             <Title />
             <div css={s.layout}>
 
-                
-                
-                <div>
+                <div css={s.listContainer}>
                     <li css={s.listTitle}>
                         <div>번호</div>
                         <div>제목</div>

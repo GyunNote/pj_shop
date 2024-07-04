@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 
 function Header(props) {
     const [isFixed, setIsFixed] = useState(true); // 초기 상태에서 isFixed를 true로 설정
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isDropdownOpen2, setIsDropdownOpen2] = useState(false);
 
     const navigate = useNavigate();
 
@@ -18,6 +20,30 @@ function Header(props) {
         } else {
             setIsFixed(true); // 항상 true로 설정하여 고정 상태를 유지
         }
+    };
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(prevState => !prevState);
+    };
+
+    const toggleDropdown2 = () => {
+        setIsDropdownOpen2(prevState => !prevState);
+    };
+
+    const handleMouseEnter = () => {
+        setIsDropdownOpen(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDropdownOpen(false);
+    };
+    
+    const handleMouseEnter2 = () => {
+        setIsDropdownOpen2(true);
+    };
+
+    const handleMouseLeave2 = () => {
+        setIsDropdownOpen2(false);
     };
 
     useEffect(() => {
@@ -39,18 +65,42 @@ function Header(props) {
         <>
             <div css={s.headerLayout}>
                 <div css={s.header}>
-                    <div >
+                    <div css={s.headerLeft}>
                         <button css={s.buttonItem}>BRAND</button>
                         <button css={s.buttonItem}>EVENT</button>
                         <button css={s.buttonItem} onClick={() => linkToNotice()}>NOTICE</button>
-                        <button css={s.buttonItem}>COMMUNITY</button>
+
+                        <div css={s.dropdownContainer} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                            <button css={s.buttonItem}>COMMUNITY</button>
+                                {isDropdownOpen && (
+                                    <div css={s.dropdownMenu}>
+                                        <div>NOTICE</div>
+                                        <div>REVIEW</div>
+                                        <div>Q&A</div>
+                                        <div>FAQ</div>
+                                    </div>
+                                )}
+                        </div>
+
                     </div> 
                     <div css={s.logo} onClick={() => linkToMain()}>
                         logo
                     </div>
-                    <div >
+                    <div css={s.headerRight}>
                         <button css={s.buttonItem2}><CiSearch /></button>
-                        <button css={s.buttonItem2}><IoPersonOutline /></button>
+                        <div css={s.dropdownContainer} onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>
+
+                            <button css={s.buttonItem2} onClick={toggleDropdown2}><IoPersonOutline /></button>
+                            {isDropdownOpen2 && (
+                                <div css={s.dropdownMenu}>
+                                    <div>LOGIN</div>
+                                    <div>JOIN</div>
+                                    <div>MY PAGE</div>
+                                    <div>ORDER</div>
+                                </div>
+                            )}
+                        </div>
+
                         <button css={s.buttonItem2}><CiShoppingCart /></button>
                         <button css={s.buttonItem2}><FaBars /></button>
                     </div>
