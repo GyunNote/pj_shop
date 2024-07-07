@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MdArrowBackIos } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
 import middleBanner from "../../images/2b65ddeb099ae5e372052866c0bd0b91.jpeg"
+import underBanner from "../../images/2a2a3c17ef2a8ff1d155388b890e2cc1.png"
 import { useNavigate } from "react-router-dom";
 
 function MainPage(props) {
@@ -13,7 +14,7 @@ function MainPage(props) {
     "https://dhait.co.kr/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/c92ea7de58a9fac94da862e8405abab7.jpg"
   ];
   const navigate = useNavigate();
-
+  const bannerRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideshowInterval = useRef(null);
@@ -44,7 +45,27 @@ function MainPage(props) {
 
   const linkToReview = () => {
     navigate("/review");
-  }
+  };
+
+  const linkToAbout = () => {
+    navigate("/about");
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const imgElement = bannerRef.current;
+      if (imgElement) {
+        const scrollPosition = window.scrollY;
+        imgElement.style.transform = `translateY(-${scrollPosition * 0.3}px)`; // 스크롤 위치에 따라 translateY 값 조정
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   
 
@@ -89,6 +110,13 @@ function MainPage(props) {
         <div css={s.textOverlay}> PHOTO REVIEW</div>
         <div css={s.textOverlay2}> 고객님들의 솔직한 후기</div>
         <button css={s.textOverlay3} onClick={() => linkToReview()}> 더 많은 리뷰 보기+</button>
+      </div>
+      <div css={s.underBanner}  >
+        <img ref={bannerRef} src={underBanner} alt="" />
+        <div css={s.textOverlay4}>여성 의류 쇼핑몰 SHOPMORE</div>
+        <div css={s.textOverlay5}>매일 업데이트 되는 상품을 확인해보세요.</div>
+        <div css={s.textOverlay6}>품질에 집중하여 보다 완성도 높은 아이템을 준비하고 있습니다.</div>
+        <button css={s.textOverlay7} onClick={() => linkToAbout()}>자세히 보기</button>
       </div>
 
       <div>

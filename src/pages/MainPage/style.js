@@ -155,3 +155,72 @@ export const textOverlay3 = css`
   border-radius: 35px;
   cursor: pointer;
 `;
+
+export const underBanner = css`
+   position: relative;
+  margin-top: 100px;
+  overflow: hidden;
+  height: 400px;
+  width: 100%;
+  
+  img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    transform: -(translateY(100%)); /* 초기에는 보이도록 설정 */
+    transition: transform 0.5s ease-out; /* transform 속성에 대한 transition 설정 */
+  }
+`;
+
+export const textOverlay4 = css`
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  font-size: 28px;
+  font-weight: 550;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+`;
+
+export const textOverlay5 = css`
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+`;
+
+export const textOverlay6 = css`
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+`;
+
+export const textOverlay7 = css`
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  border:1px solid white ;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  padding: 15px 45px;
+  background: fixed;
+  cursor: pointer;
+`;

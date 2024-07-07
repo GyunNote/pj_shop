@@ -73,6 +73,7 @@ background-color: white;
 margin-right: 24px;
 font-size: 14.5px;
  :hover{
+    color: #c6c3c3;
     cursor: pointer;
 }
 `;
@@ -83,7 +84,7 @@ export const dropdownContainer = css`
 
 export const dropdownMenu = css`
   position: absolute;
-  top: 115%;
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff;

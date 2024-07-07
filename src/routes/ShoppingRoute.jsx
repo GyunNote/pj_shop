@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import MainPage from '../pages/MainPage/MainPage';
 import NoticePage from '../pages/NoticePage/NoticePage';
 import ReviewPage from '../pages/ReviewPage/ReviewPage';
+import ExplainPage from '../pages/ExplainPage/ExplainPage';
 
 function ShoppingRoute(props) {
     return (
@@ -11,6 +12,7 @@ function ShoppingRoute(props) {
                 <Route path='/' element={<MainPage/>} />
                     <Route path='/notice' element={<NoticePage />} />
                     <Route path='/review' element={<ReviewPage />} />
+                    <Route path='/about' element={<ExplainPage />} />
 
             </Routes>
         </>
