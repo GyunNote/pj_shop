@@ -84,7 +84,7 @@ function Header(props) {
 
                     </div> 
                     <div css={s.logo} onClick={() => linkToMain()}>
-                        logo
+                        LOGO
                     </div>
                     <div css={s.headerRight}>
                         <button css={s.buttonItem2}><CiSearch /></button>

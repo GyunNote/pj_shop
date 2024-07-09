@@ -12,7 +12,7 @@ function Footer(props) {
     return (
         <div css={s.footerLayout}>
             <div css={s.section1}>
-                <div>logo</div>
+                <div>LOGO</div>
                 <div>
                     <div>상호명: corporation</div>
                     <div>대표: 김이박</div>
