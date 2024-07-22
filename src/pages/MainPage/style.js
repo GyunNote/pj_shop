@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 
 export const mainLayout = css`
   width: 100%;
+  margin-left: 15px;
 `;
 
 export const mainPhoto = css`

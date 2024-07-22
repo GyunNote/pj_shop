@@ -14,6 +14,9 @@ function NoticePage(props) {
             refetchOnWindowFocus : false,
             onSuccess : response => {
                 console.log(response)
+            },
+            onError : error => {
+                console.log(error);
             }
         }
     );

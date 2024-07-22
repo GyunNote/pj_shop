@@ -10,14 +10,14 @@ import ShoppingRoute from './routes/ShoppingRoute';
 
 function App() {
 
-  const principalQuery = useQuery(
-    ["principalQuery"],
-    getPrincipalRequest,
-    {
-        retry: 0,
-        refetchOnWindowFocus: false
-    }
-  );
+  // const principalQuery = useQuery(
+  //   ["principalQuery"],
+  //   getPrincipalRequest,
+  //   {
+  //       retry: 0,
+  //       refetchOnWindowFocus: false
+  //   }
+  // );
   return (
     <>
       <Layout>

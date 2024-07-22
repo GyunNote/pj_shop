@@ -6,6 +6,7 @@ box-sizing: border-box;
 width: 100%;
 height: 300px;
 padding: 50px;
+border-top: 1px solid #dbdbdb;
 `;
 
 export const section1 = css`
